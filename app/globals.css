@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 10% 90%; /* Light background */
+    --foreground: 20 10% 10%; /* Dark foreground */
+    --card: 230 10% 98%; /* Light card background */
+    --card-foreground: 20 10% 10%; /* Dark card foreground */
+    --popover: 230 10% 98%; /* Light popover background */
+    --popover-foreground: 20 10% 10%; /* Dark popover foreground */
+    --primary: 200 50% 20%; /* Primary color */
+    --primary-foreground: 230 10% 90%; /* Light primary foreground */
+    --secondary: 20 10% 90%; /* Dark secondary color */
+    --secondary-foreground: 230 10% 10%; /* Light secondary foreground */
+    --muted: 230 10% 80%; /* Light muted color */
+    --muted-foreground: 20 10% 40%; /* Dark muted foreground */
+    --accent: 200 50% 20%; /* Accent color */
+    --accent-foreground: 230 10% 90%; /* Light accent foreground */
+    --destructive: 0 84.2% 60.2%; /* Destructive color */
+    --destructive-foreground: 0 0% 98%; /* Destructive foreground */
+    --border: 230 10% 80%; /* Light border color */
+    --input: 230 10% 95%; /* Light input background */
+    --ring: 200 50% 20%; /* Primary ring color */
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-[hsl(var(--border))];
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Mobile menu styles */
+.mobile-menu-open {
+  overflow: hidden;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+  background-color: hsl(var(--background));
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.mobile-menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9998;
+}
+
+/* Custom scrollbar for Webkit browsers */
+.mobile-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.mobile-menu::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+.mobile-menu::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted-foreground));
+  border-radius: 20px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+button,
+[role="button"],
+a,
+select,
+summary,
+[type="radio"],
+[type="submit"],
+[type="checkbox"] {
+  cursor: pointer;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="week"],
+input[type="url"] {
+  cursor: text;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-primary text-primary-foreground;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-secondary-foreground;
+}
+
+/* Form styles */
+.form-input {
+  @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.form-label {
+  @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+}
+
